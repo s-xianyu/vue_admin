@@ -1,5 +1,5 @@
 <template>
-  <div class="login">
+  <div :class="msg">
     <div class="content">
       <div class="center">
         <div class="title">
@@ -26,6 +26,7 @@
   export default {
     data() {
       return {
+        msg:'login',
         form:{
           userName:'',
           userPsd:''

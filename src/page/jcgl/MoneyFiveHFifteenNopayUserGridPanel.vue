@@ -1,5 +1,5 @@
 <template>
-  <div class="CarManUserGridPanel">
+  <div :class="msg">
     <div class="menu">
       <div class="content">
         <div class="left">
@@ -137,11 +137,11 @@
     getAllManagerList,
     getProvince
   } from '../../config/ajax'
-  import { mapMutations, mapGetters } from 'vuex'
+  import { mapMutations, mapGetters,mapState } from 'vuex'
   export default {
     data() {
       return {
-        msg: 'CarManUserGridPanel',
+        msg:'MoneyFiveHFifteenNopayUserGridPanel',
         loading:true,
         winHeight:document.documentElement.clientHeight-185+'px',
         list:[],  //传值给子级
@@ -155,7 +155,7 @@
           ],
         flValue:'',
         flOption:[
-          {name:'所有',value:''},
+          {name:'所有',value:' '},
           {name:'A类用户',value:'1'},
           {name:'B类用户',value:'2'},
           {name:'C类用户',value:'3'},
@@ -173,11 +173,12 @@
     },
     watch:{
       _getPagination(val){
-        this.params.start = (val - 1) * this.params['page.limit'];
+        this.params['page.start'] = (val - 1) * this.params['page.limit'];
         this.getList();
       }
     },
     computed:{
+      ...mapState(['paginationPage']),
       ...mapGetters(['_getPagination']),
       params(){
         return {
@@ -233,18 +234,18 @@
         }
       },
       getSearch(){
+        let params = this.params;
         this.loading = true;
-        this.kfValue && (this.params.managerId = this.kfValue);
-        this.pxValue && (this.params.sortType = this.pxValue);
-        this.userId && (this.params.userid = this.userId);
-        this.userName && (this.params.username = this.userName);
-        this.userPhone && (this.params.mobileOrPhone = this.userPhone);
-        this.sfValue && (this.params.area_code = this.sfValue);
-        this.userLogin && (this.params.login_name = this.userLogin);
-        this.userComp && (this.params.company = this.userComp);
-        console.log(this.params)
+        this.kfValue ? params.managerId = this.kfValue : delete params.managerId; //客服
+        this.pxValue ? params.sortType = this.pxValue : delete params.sortType; //排序
+        this.userId ? params.userid = this.userId : delete params.userid;  //用户Id
+        this.userName ? params.username = this.userName : delete params.username; //魔化查询姓名
+        this.userPhone ? params.mobileOrPhone = this.userPhone : delete params.mobileOrPhone; //电话或手机
+        this.sfValue ? params.area_code = this.sfValue : delete params.area_code; //省份
+        this.userLogin ? params.login_name = this.userLogin : delete params.login_name; //登录名
+        this.flValue ? params.state = this.flValue : delete params.state; //用户分类
+        this.userComp ? params.company = this.userComp : delete params.company; //公司名
         this.getList();
-        console.log(this.params)
       },
       delSearch(){
         [
@@ -255,6 +256,7 @@
           this.userPhone,
           this.sfValue,
           this.userLogin,
+          this.flValue,
           this.userComp,
         ] = [''];
         delete this.params.managerId;
@@ -265,8 +267,12 @@
         delete this.params.area_code;
         delete this.params.login_name;
         delete this.params.company;
-        this.getList();
-        this.PAGINATION_PAGE(1);
+        console.log(this.params);
+        if(this.paginationPage === 1){
+          this.getList();
+        }else{
+          this.PAGINATION_PAGE(1);
+        }
       },
     }
   }

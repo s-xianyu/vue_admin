@@ -1,5 +1,5 @@
 <template>
-  <div class="home">
+  <div :class="msg">
     <div class="menu">
       <div class="content">
         <div class="left"></div>
@@ -125,11 +125,11 @@
 <script>
   import Vue from 'vue'
   import { ContactCensusMonthSortlist } from '../../config/ajax';
-  import { mapMutations,mapGetters } from 'vuex'
+  import { mapMutations,mapGetters,mapState } from 'vuex'
   export default {
     data() {
       return {
-        msg: 'home',
+        msg:'home',
         loading:true,
         winHeight:document.documentElement.clientHeight-185+'px',
         list:[],
@@ -172,6 +172,7 @@
       this.getList();
     },
     computed:{
+      ...mapState(['paginationPage']),
       ...mapGetters(['_getPagination']),
       params () {
         return {
@@ -200,12 +201,20 @@
       },
       getSearch(){
         this.params.searchtime = this.thisTime;
-        this.getList();
+        if(this.paginationPage === 1){
+          this.getList();
+        }else{
+          this.PAGINATION_PAGE(1);
+        }
       },
       delSearch(){
         this.thisTime = '';
         delete this.params.searchtime;
-        this.getList();
+        if(this.paginationPage === 1){
+          this.getList();
+        }else{
+          this.PAGINATION_PAGE(1);
+        }
       },
     }
   }

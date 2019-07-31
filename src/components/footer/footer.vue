@@ -10,8 +10,8 @@
       </el-pagination>
     </div>
     <div class="right">
-      <span v-if="pagination.show" class="font14">显示第<font>{{pagination.firstPage}}</font>条到第<font>{{pagination.lastPage}}</font>条记录，一共<font>{{pagination.allPage}}</font>条</span>
-      <span v-else class="font14">暂无数据</span>
+      <span v-if="pagination.show" class="f14">显示第<font>{{pagination.firstPage}}</font>条到第<font>{{pagination.lastPage}}</font>条记录，一共<font>{{pagination.allPage}}</font>条</span>
+      <span v-else class="f14">暂无数据</span>
     </div>
   </div>
 </template>

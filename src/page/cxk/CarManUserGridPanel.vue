@@ -1,10 +1,11 @@
 <template>
-  <div class="CarManUserGridPanel">
+  <div :class="msg">
+    <!--header-->
     <div class="menu">
       <div class="content">
         <div class="left">
           <span class="span">总计</span>
-          <span class="span">新增车销客</span>
+          <span class="span" @click="dialogFormVisible = true">新增车销客</span>
           <span class="span">运营数据统计</span>
           <span class="span">导出EXCEL</span>
         </div>
@@ -17,6 +18,7 @@
         </div>
       </div>
     </div>
+    <!--table-->
     <el-container style="border: 1px solid #eee">
       <el-aside width="100%" style="background-color: rgb(238, 241, 246)">
         <el-main>
@@ -75,32 +77,58 @@
         </el-main>
       </el-aside>
     </el-container>
+    <!--新增车销客弹框-->
+    <el-dialog title="收货地址" width="500px" :visible.sync="dialogFormVisible">
+      <el-form :model="form">
+        <el-input placeholder="请输入内容" class="mar5" v-model="form.input1">
+          <template slot="prepend">老板姓名:</template>
+        </el-input>
+        <el-input placeholder="请输入内容" class="mar10" v-model="form.input2">
+          <template slot="prepend">&nbsp;&nbsp;&nbsp;手机号:</template>
+        </el-input>
+        <el-input placeholder="请输入内容" class="mar5" v-model="form.input3">
+          <template slot="prepend">公司名称:</template>
+        </el-input>
+      </el-form>
+      <div slot="footer" class="dialog-footer">
+        <el-button @click="dialogFormVisible = false">取 消</el-button>
+        <el-button type="primary" @click="dialogFormVisible = false">确 定</el-button>
+      </div>
+    </el-dialog>
   </div>
 </template>
 
 <script>
   import { carManUserList } from '../../config/ajax'
-  import { mapMutations, mapGetters } from 'vuex'
+  import { mapMutations, mapGetters, mapState } from 'vuex'
   export default {
     data() {
       return {
-        msg: 'CarManUserGridPanel',
+        msg:'CarManUserGridPanel',
         loading:true,
         winHeight:document.documentElement.clientHeight-185+'px',
         list:[],
         multipleSelection:[],
         companyName:'',
         loginName:'',
-        hxName:''
+        hxName:'',
+        dialogFormVisible:false,
+        form:{
+          input1:'',
+          input2:'',
+          input3:'',
+        },
       }
     },
     watch:{
       _getPagination(val){
+        this.loading = true;
         this.params.start = (val - 1) * this.params.limit;
         this.getList();
       }
     },
     computed:{
+      ...mapState(['paginationPage']),
       ...mapGetters(['_getPagination']),
       params(){
         return {
@@ -130,13 +158,13 @@
       },
       handleSelectionChange(val){
         this.multipleSelection = val;
-        console.log(val);
       },
       getSearch(){
+        let params = this.params;
         this.loading = true;
-        this.params.company = this.companyName;
-        this.params.mobile = this.loginName;
-        this.params.hx_loginname = this.hxName;
+        this.companyName ? params.company = this.companyName : delete params.company;
+        this.loginName ? params.mobile = this.loginName : delete params.mobile;
+        this.hxName ? params.hx_loginname = this.hxName : delete params.hx_loginname;
         this.getList();
       },
       delSearch(){
@@ -145,8 +173,11 @@
         delete this.params.company;
         delete this.params.mobile;
         delete this.params.hx_loginname;
-        this.getList();
-        this.PAGINATION_PAGE(1);
+        if(this.paginationPage === 1){
+          this.getList();
+        }else{
+          this.PAGINATION_PAGE(1);
+        }
       }
     }
   }

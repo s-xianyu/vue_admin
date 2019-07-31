@@ -25,7 +25,7 @@ export const login = (login_name,password) => {
 export const ContactCensusMonthSortlist = params => get(`${api}/admin/contactcensusday/ContactCensusMonthSortlist.json`,params);
 
 /*
-*车销客总汇
+*车销客后台-车销客总汇
  */
 export const carManUserList = (value) => {
   let params = {
@@ -38,7 +38,7 @@ export const carManUserList = (value) => {
   return get(`${api}/admin/carManUser/getList.json`,params);
 };
 /*
-*华币余额大于500超15天未消费
+*检查管理-华币余额大于500超15天未消费
 */
 export const moneyfivehfifteennopay = params => get(`${api}/admin/usercontact/moneyfivehfifteennopay.json`,params);
 /*
@@ -49,6 +49,34 @@ export const getAllManagerList = params => get(`${api}/admin/manager/getAllManag
 *获取省份列表
  */
 export const getProvince = () => get(`${api}/admin/sys/areacode/getProvince.json`);
+/*
+*日常工作表-RFM模型
+ */
+export const  payRfmModelList = params => get(`${api}/admin/payRfmModel/getList.json`,params);
+/*
+*日常工作表充值检查
+ */
+export const getCheckRecharge = params => get(`${api}/admin/money/recharge/getCheckRecharge.json`,params);
+/*
+*日常工作表-未审核入账管理
+ */
+export const getNoCheckList = params => get(`${api}/admin/caiwuRuzhang/getNoCheckList.json`,params);
+/*
+*日常工作表-未审核充值检查
+ */
+export const getNoCheckRecharge = params => get(`${api}/admin/money/recharge/getNoCheckRecharge.json`,params);
+/*
+*日常工作表-操作过网上充值的用户-未处理（25）
+ */
+export const findPaymentUser = params => get(`${api}/admin/usercontact/findPaymentUser.json`,params);
+/*
+*日常工作表-操作过网上充值的用户-所有（25）
+ */
+export const findPaymentUserAll = params => get(`${api}/admin/usercontact/findPaymentUserAll.json`,params);
+/*
+*日常工作表-直充成功无归属客服表（0）
+ */
+export const findPaymentUserState0Mid0 = params => get(`${api}/admin/usercontact/findPaymentUserState0Mid0.json`,params);
 
 
 /**

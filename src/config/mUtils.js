@@ -49,7 +49,9 @@ export const delCookie = name => {
     document.cookie= name + "="+cval+";expires="+exp.toGMTString();
   }
 };
-
+/**
+ * 存储cookie
+ */
 export const setCookie = (name,value) => {
   let Days = 30;
   let exp = new Date();

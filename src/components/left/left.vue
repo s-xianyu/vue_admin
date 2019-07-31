@@ -21,11 +21,19 @@
             <span>{{item.text}}</span>
           </template>
           <el-menu-item
-            :data-children="li.children"
-            class="font12"
+            v-if="!li.children"
+            class="f12"
             v-for="(li,index) in item.children"
             :index="li.url+li.data.parent_id"
             :key="index">{{li.text}}</el-menu-item>
+          <el-submenu v-else :index="index+''+li.data.parent_id">
+            <template slot="title">{{li.text}}</template>
+            <el-menu-item
+              v-for="(ls,index) in li.children"
+              class="f12"
+              :index="ls.url+ls.data.parent_id"
+              :key="index">{{ls.text}}</el-menu-item>
+          </el-submenu>
         </el-submenu>
       </el-menu>
     </el-col>
@@ -84,7 +92,7 @@
     .wid{
       font-weight: bold;
     }
-    .font12{
+    .f12{
       font-weight: normal;
     }
   }

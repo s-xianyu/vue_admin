@@ -29,7 +29,7 @@
     background:#e1e1e1;
     position: relative;
     .breadcrumb{
-      @include wh(100%,100%);
+      @include wh(auto,100%);
       @include flexCenter;
       justify-content: flex-start;
       padding-left:20px;
