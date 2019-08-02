@@ -1,5 +1,5 @@
 <template>
-  <div class="footer">
+  <div :class="msg">
     <div class="left">
       <el-pagination
         @current-change="handleCurrentChange"

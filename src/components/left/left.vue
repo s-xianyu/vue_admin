@@ -1,5 +1,5 @@
 <template>
-  <div :style="{height:winHeight}" class="lefts">
+  <div :style="{height:winHeight}" :class="msg">
     <el-col :span="24">
       <el-menu
         :default-active="defaultActive"
@@ -44,6 +44,7 @@
   export default {
     data() {
       return {
+        msg:'left',
         list:[],
         winHeight:document.documentElement.clientHeight+'px',
         activeIndex:'0',
@@ -77,7 +78,7 @@
 
 <style lang="scss" scoped>
   @import "../../../static/style/common";
-  .lefts{
+  .left{
     overflow: scroll;
     &::-webkit-scrollbar {
       width: 0;

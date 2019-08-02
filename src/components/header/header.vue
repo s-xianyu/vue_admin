@@ -1,5 +1,5 @@
 <template>
-  <div class="header">
+  <div :class="msg">
     <el-breadcrumb separator="/" class="breadcrumb">
       <el-breadcrumb-item :to="{ path: '/index' }">首页</el-breadcrumb-item>
       <el-breadcrumb-item v-for="(item, index) in $route.name" :key="index">{{item}}</el-breadcrumb-item>
