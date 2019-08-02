@@ -99,13 +99,19 @@ export const getClearMoney100List = params => get(`${api}/admin/tcmoneyClearlog/
 * 冻结华币管理-冻结华币未处理
  */
 export const getOneMonthUntreat = params => get(`${api}/admin/tcmoneyClearlog/getOneMonthUntreat.json`,params);
+
+
 /*
- *
+ *人员角色管理-
  */
 export const getOrgUserTree = params => get(`${api}/admin/rbac/user/getOrgUserTree.json`,params);
-
+/*
+ *人员角色管理-
+ */
 export const getTreeNodeListRole = params => get(`${api}/admin/rbac/role/getTreeNodeList.json`,params);
-
+/*
+ *人员角色管理-
+ */
 export const getTreeNodeListManager = params => get(`${api}/admin/manager/getTreeNodeList.json`,params);
 
 /**
