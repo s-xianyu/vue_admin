@@ -53,6 +53,14 @@ import {
   CaiwuConfirmMoneyFormPanel,
   TcmoneyClearlogGridPanel,
 
+  //人员角色管理
+  UserRolePanel,
+  RolePermitionPanel,
+  PermitionMenuPanel,
+  MenutreePanel,
+  UserCommentGridPanel,
+  ManagerGridPanel,
+
   MoneyFiveHFifteenNopayUserGridPanel
 } from "./router";
 
@@ -269,6 +277,36 @@ export default new Router({
           path:'/TcmoneyClearlogGridPanel824',
           component:TcmoneyClearlogGridPanel,
           name:[' 冻结华币管理','华币冻结'],
+        },
+        {
+          path:'/UserRolePanel22',
+          component:UserRolePanel,
+          name:[' 人员角色管理','人员管理'],
+        },
+        {
+          path:'/RolePermitionPanel22',
+          component:RolePermitionPanel,
+          name:[' 人员角色管理','角色管理'],
+        },
+        {
+          path:'/PermitionMenuPanel22',
+          component:PermitionMenuPanel,
+          name:[' 人员角色管理','权限管理'],
+        },
+        {
+          path:'/MenutreePanel22',
+          component:MenutreePanel,
+          name:[' 人员角色管理','菜单管理'],
+        },
+        {
+          path:'/UserCommentGridPanel47',
+          component:UserCommentGridPanel,
+          name:[' 人员角色管理','留言管理'],
+        },
+        {
+          path:'/ManagerGridPanel47',
+          component:ManagerGridPanel,
+          name:[' 人员角色管理','客服经理管理'],
         },
         {
           path:'/MoneyFiveHFifteenNopayUserGridPanel1330',

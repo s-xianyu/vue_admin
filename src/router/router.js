@@ -49,6 +49,14 @@ export const TcmoneyClearlogUntreatTabPanel = () => import('@/page/djhbgl/Tcmone
 export const CaiwuConfirmMoneyFormPanel = () => import('@/page/djhbgl/CaiwuConfirmMoneyFormPanel');
 export const TcmoneyClearlogGridPanel = () => import('@/page/djhbgl/TcmoneyClearlogGridPanel');
 
+//人员角色管理
+export const UserRolePanel = () => import('@/page/ryjsgl/UserRolePanel');
+export const RolePermitionPanel = () => import('@/page/ryjsgl/RolePermitionPanel');
+export const PermitionMenuPanel = () => import('@/page/ryjsgl/PermitionMenuPanel');
+export const MenutreePanel = () => import('@/page/ryjsgl/MenutreePanel');
+export const UserCommentGridPanel = () => import('@/page/ryjsgl/UserCommentGridPanel');
+export const ManagerGridPanel = () => import('@/page/ryjsgl/ManagerGridPanel');
+
 // 检查管理
 export const MoneyFiveHFifteenNopayUserGridPanel = () => import('@/page/jcgl/MoneyFiveHFifteenNopayUserGridPanel');
 

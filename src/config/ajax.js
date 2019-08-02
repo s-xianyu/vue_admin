@@ -79,6 +79,35 @@ export const findPaymentUserAll = params => get(`${api}/admin/usercontact/findPa
 export const findPaymentUserState0Mid0 = params => get(`${api}/admin/usercontact/findPaymentUserState0Mid0.json`,params);
 
 
+/*
+* 冻结华币管理-确认收入
+ */
+export const getMoney = params => get(`${api}/admin/caiwuConfirm/getMoney.json`,params);
+/*
+* 冻结华币管理-华币冻结
+ */
+export const getTcmoneyClearlogList = params => get(`${api}/admin/tcmoneyClearlog/getTcmoneyClearlogList.json`,params);
+/*
+* 冻结华币管理-华币冻结上传确认
+ */
+export const getTcmoneyConfimList = params => get(`${api}/admin/tcmoneyClearlog/getTcmoneyConfimList.json`,params);
+/*
+* 冻结华币管理-华币冻结需处理
+ */
+export const getClearMoney100List = params => get(`${api}/admin/tcmoneyClearlog/getClearMoney100List.json`,params);
+/*
+* 冻结华币管理-冻结华币未处理
+ */
+export const getOneMonthUntreat = params => get(`${api}/admin/tcmoneyClearlog/getOneMonthUntreat.json`,params);
+/*
+ *
+ */
+export const getOrgUserTree = params => get(`${api}/admin/rbac/user/getOrgUserTree.json`,params);
+
+export const getTreeNodeListRole = params => get(`${api}/admin/rbac/role/getTreeNodeList.json`,params);
+
+export const getTreeNodeListManager = params => get(`${api}/admin/manager/getTreeNodeList.json`,params);
+
 /**
  * get方法，对应get请求
  * @param {String} url [请求的url地址]

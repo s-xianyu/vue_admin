@@ -165,10 +165,10 @@
   export default {
     data() {
       return {
-        loading:true,
         msg:'CaiwuRuzhangNoCheckGridPanel',
+        loading:true,
         winHeight:document.documentElement.clientHeight-185+'px',
-        list:[],  //传值给子级
+        list:[],
         multipleSelection:[],
         shValue:'',
         shOption:[
