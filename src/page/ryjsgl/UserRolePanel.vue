@@ -3,11 +3,12 @@
     <div class="content" style="width:100%" :style="{height:winHeight}">
       <div class="left">
         <el-tree
+          :style="{height:rightHeight}"
+          class="tree"
           :data="userInfo"
-          show-checkbox
           draggable
           :props="defaultProps"
-          @node-click="handleNodeClick"></el-tree>
+          @node-click="handleNodeClickRIght"></el-tree>
       </div>
       <div class="right">
         <el-tabs type="border-card" v-model="activeName" @tab-click="handleClick">
@@ -41,7 +42,8 @@
   import {
     getOrgUserTree,
     getTreeNodeListRole,
-    getTreeNodeListManager
+    getTreeNodeListManager,
+    getPowerInfo
   } from '../../config/ajax'
   export default {
     data() {
@@ -56,12 +58,8 @@
         activeName:'first',
         defaultProps:{
           label:'text',
-          children:'children'
+          children:'children',
         },
-        roleListProp:{
-          label:'text'
-
-        }
       }
     },
     computed:{
@@ -82,18 +80,36 @@
         ]);
         this.userInfo = userInfo.data;
         this.roleList = roleList.data;
-        this.handleNodeClick(this.userInfo[0].id);
+        this.twoInfo(this.userInfo[0]);
       },
       // 获取id后获取下一级级菜单
-      async handleNodeClick(id){
-        this.params.org_id = this.userInfo[0].data.id;
-        this.params.node = this.userInfo[0].id;
+      async twoInfo(info){
+        this.params.org_id = info.data.id;
+        this.params.node = info.id;
         let { data } = await getOrgUserTree(this.params);
-        this.userInfo[0].children = data;
+        // this.userInfo[0].children = data;
+        this.$set(info,'children',data);
+        this.threeInfo(data);
+
+      },
+      // 获取id后第三级级菜单
+      async threeInfo(info){
+        for(let key of info){
+          this.params.org_id = key.data.id;
+          this.params.node = key.id;
+          let { data } = await getOrgUserTree(this.params);
+          this.$set(key,'children',data);
+        }
         console.log(this.userInfo);
       },
-      handleNodeClickRIght(data){
-        console.log(data);
+      async handleNodeClickRIght(res){
+        if(!res.children){
+          let params = {
+            user_id: res.data.id
+          };
+          let { data } = await getPowerInfo(params);
+          console.log(data);
+        }
       },
       async handleClick(){
         if(this.managerList.length <= 0){
@@ -110,17 +126,21 @@
 ul,li{
   list-style: none;
 }
+.el-tab-pane{
+  border-top:1px solid #DCDFE6;
+}
   .content{
     @include flexCenter;
     align-items: flex-start;
     overflow: hidden;
     & .left{
       flex:1;
+      .tree{
+        overflow-y: scroll;
+      }
     }
     & .right{
       width:300px;
-      border-left:1px solid #e1e1e1;
-      border-bottom:1px solid #e1e1e1;
       padding-left: 10px;
       ul{
         overflow-y: scroll;

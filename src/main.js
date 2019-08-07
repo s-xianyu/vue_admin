@@ -4,6 +4,7 @@ import Vue from 'vue'
 import App from './App'
 import '../static/style/common.scss'
 import ElementUi from 'element-ui'
+import './config/allAixin'
 import 'element-ui/lib/theme-chalk/index.css';
 
 import store from './store/store'

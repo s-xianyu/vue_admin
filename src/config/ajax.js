@@ -102,17 +102,19 @@ export const getOneMonthUntreat = params => get(`${api}/admin/tcmoneyClearlog/ge
 
 
 /*
- *人员角色管理-
+ *人员角色管理-人员管理
  */
 export const getOrgUserTree = params => get(`${api}/admin/rbac/user/getOrgUserTree.json`,params);
 /*
- *人员角色管理-
+ *人员角色管理-获取角色
  */
 export const getTreeNodeListRole = params => get(`${api}/admin/rbac/role/getTreeNodeList.json`,params);
 /*
- *人员角色管理-
+ *人员角色管理-获取客户经理
  */
 export const getTreeNodeListManager = params => get(`${api}/admin/manager/getTreeNodeList.json`,params);
+
+export const getPowerInfo = params => get(`${api}/admin/manager/getPowerInfo.json`,params);
 
 /**
  * get方法，对应get请求
@@ -126,7 +128,7 @@ export function get(url, params){
     }).then(res => {
       resolve(res);
     }).catch(err =>{
-      reject(err.data)
+      reject(err.data);
     })
   });
 }
