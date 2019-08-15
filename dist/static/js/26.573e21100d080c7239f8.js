@@ -1,2 +1,0 @@
-webpackJsonp([26],{PBW0:function(t,e,s){"use strict";Object.defineProperty(e,"__esModule",{value:!0});var n={render:function(){var t=this.$createElement,e=this._self._c||t;return e("div",{class:this.msg},[e("h2",[this._v(this._s(this.msg))])])},staticRenderFns:[]};var i=s("C7Lr")({data:function(){return{msg:"GroupMoneyCostStatisticsGridPanel"}}},n,!1,function(t){s("domM")},"data-v-39d6adfb",null);e.default=i.exports},domM:function(t,e){}});
-//# sourceMappingURL=26.573e21100d080c7239f8.js.map

@@ -1,2 +1,0 @@
-webpackJsonp([21],{Cd4J:function(t,e,n){"use strict";Object.defineProperty(e,"__esModule",{value:!0});var s={render:function(){var t=this.$createElement,e=this._self._c||t;return e("div",{class:this.msg},[e("h2",[this._v(this._s(this.msg))])])},staticRenderFns:[]};var r=n("C7Lr")({data:function(){return{msg:"UserCommentGridPanel"}}},s,!1,function(t){n("xY/A")},"data-v-50bc72a4",null);e.default=r.exports},"xY/A":function(t,e){}});
-//# sourceMappingURL=21.1becd1a06b0fbd5f9c7f.js.map

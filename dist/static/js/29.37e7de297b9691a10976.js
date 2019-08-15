@@ -1,2 +1,0 @@
-webpackJsonp([29],{W3Ka:function(e,t){},xobl:function(e,t,n){"use strict";Object.defineProperty(t,"__esModule",{value:!0});var s={render:function(){var e=this.$createElement,t=this._self._c||e;return t("div",{class:this.msg},[t("h2",[this._v(this._s(this.msg))])])},staticRenderFns:[]};var r=n("C7Lr")({data:function(){return{msg:"MenutreePanel"}}},s,!1,function(e){n("W3Ka")},"data-v-20de5f1e",null);t.default=r.exports}});
-//# sourceMappingURL=29.37e7de297b9691a10976.js.map

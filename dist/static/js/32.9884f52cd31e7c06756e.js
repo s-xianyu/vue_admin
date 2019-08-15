@@ -1,2 +1,0 @@
-webpackJsonp([32],{"8LZr":function(t,e,n){"use strict";Object.defineProperty(e,"__esModule",{value:!0});var s={render:function(){var t=this.$createElement,e=this._self._c||t;return e("div",{class:this.msg},[e("h2",[this._v(this._s(this.msg))])])},staticRenderFns:[]};var r=n("C7Lr")({data:function(){return{msg:"YkjContactPaiHangGridPanel"}}},s,!1,function(t){n("T070")},"data-v-1c01f36f",null);e.default=r.exports},T070:function(t,e){}});
-//# sourceMappingURL=32.9884f52cd31e7c06756e.js.map

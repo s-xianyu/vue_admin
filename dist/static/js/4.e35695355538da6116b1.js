@@ -1,2 +1,0 @@
-webpackJsonp([4],{"4lKr":function(e,t){},yW5U:function(e,t,r){"use strict";Object.defineProperty(t,"__esModule",{value:!0});var n={render:function(){var e=this.$createElement,t=this._self._c||e;return t("div",{class:this.msg},[t("h2",[this._v(this._s(this.msg))])])},staticRenderFns:[]};var s=r("C7Lr")({data:function(){return{msg:"GroupCarRecordGridPanel"}}},n,!1,function(e){r("4lKr")},"data-v-f329fe4a",null);t.default=s.exports}});
-//# sourceMappingURL=4.e35695355538da6116b1.js.map

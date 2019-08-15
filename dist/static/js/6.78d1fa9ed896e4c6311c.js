@@ -1,2 +1,0 @@
-webpackJsonp([6],{Csxo:function(t,e){},uz8u:function(t,e,s){"use strict";Object.defineProperty(e,"__esModule",{value:!0});var n={render:function(){var t=this.$createElement,e=this._self._c||t;return e("div",{class:this.msg},[e("h2",[this._v(this._s(this.msg))])])},staticRenderFns:[]};var a=s("C7Lr")({data:function(){return{msg:"ManagerGridPanel"}}},n,!1,function(t){s("Csxo")},"data-v-aca83c88",null);e.default=a.exports}});
-//# sourceMappingURL=6.78d1fa9ed896e4c6311c.js.map

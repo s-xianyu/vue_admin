@@ -1,2 +1,0 @@
-webpackJsonp([0],{MCqj:function(t,s){},hK7O:function(t,s,e){"use strict";Object.defineProperty(s,"__esModule",{value:!0});var n={render:function(){var t=this.$createElement,s=this._self._c||t;return s("div",{class:this.msg},[s("h2",[this._v(this._s(this.msg))])])},staticRenderFns:[]};var i=e("C7Lr")({data:function(){return{msg:"GroupAssistantStatisticsGridPanel"}}},n,!1,function(t){e("MCqj")},"data-v-1534fcdb",null);s.default=i.exports}});
-//# sourceMappingURL=0.7bc2e534369e8cccb06a.js.map
