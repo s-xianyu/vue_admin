@@ -1,0 +1,2 @@
+webpackJsonp([30],{FpEk:function(t,e){},XwwX:function(t,e,n){"use strict";Object.defineProperty(e,"__esModule",{value:!0});var s={render:function(){var t=this.$createElement,e=this._self._c||t;return e("div",{class:this.msg},[e("h2",[this._v(this._s(this.msg))])])},staticRenderFns:[]};var i=n("C7Lr")({data:function(){return{msg:"RolePermitionPanel"}}},s,!1,function(t){n("FpEk")},"data-v-1f1bc198",null);e.default=i.exports}});
+//# sourceMappingURL=30.9ca0a7d4b0e876761a3a.js.map

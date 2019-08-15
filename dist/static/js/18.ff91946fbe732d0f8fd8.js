@@ -1,0 +1,2 @@
+webpackJsonp([18],{"5/Oh":function(t,e,n){"use strict";Object.defineProperty(e,"__esModule",{value:!0});var s={render:function(){var t=this.$createElement;return(this._self._c||t)("h2",[this._v(this._s(this.msg))])},staticRenderFns:[]};var a=n("C7Lr")({data:function(){return{msg:"PersonalAssitantTabPanel"}}},s,!1,function(t){n("vYv1")},"data-v-5a7e363a",null);e.default=a.exports},vYv1:function(t,e){}});
+//# sourceMappingURL=18.ff91946fbe732d0f8fd8.js.map
