@@ -169,7 +169,7 @@
       }
     },
     mounted(){
-      this.getList();
+      this.isPagination();
     },
     computed:{
       ...mapState(['paginationPage']),
@@ -183,6 +183,9 @@
     },
     methods:{
       ...mapMutations(['COMMITS_PAGE']),
+      isPagination(){
+        this.paginationPage === 1 ? this.getList() :  this.PAGINATION_PAGE(1)
+      },
       async getList(){
         let { data } = await ContactCensusMonthSortlist(this.params);
         this.list = data.root;
@@ -210,11 +213,7 @@
       delSearch(){
         this.thisTime = '';
         delete this.params.searchtime;
-        if(this.paginationPage === 1){
-          this.getList();
-        }else{
-          this.PAGINATION_PAGE(1);
-        }
+        this.isPagination();
       },
     }
   }

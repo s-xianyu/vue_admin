@@ -210,10 +210,13 @@
       }
     },
     mounted(){
-      this.getList();
+      this.isPagination();
     },
     methods:{
       ...mapMutations(['COMMITS_PAGE','PAGINATION_PAGE']),
+      isPagination(){
+        this.paginationPage === 1 ? this.getList() :  this.PAGINATION_PAGE(1)
+      },
       async getList() {
         let { data } = await payRfmModelList(this.params);
         this.list[this.tabIndex] = data.root;
@@ -232,28 +235,16 @@
       },
       getSearch(){
         this.params.searchtime = this.thisTime;
-        if(this.paginationPage === 1){
-          this.getList();
-        }else{
-          this.PAGINATION_PAGE(1);
-        }
+        this.isPagination();
       },
       delSearch(){
         this.thisTime = '';
         delete this.params.searchtime;
-        if(this.paginationPage === 1){
-          this.getList();
-        }else{
-          this.PAGINATION_PAGE(1);
-        }
+        this.isPagination();
       },
       tabClick(e){
         this.tabIndex = e.index;
-        if(this.paginationPage === 1){
-          this.getList();
-        }else{
-          this.PAGINATION_PAGE(1);
-        }
+        this.isPagination();
         console.log(e.index);
       }
     }

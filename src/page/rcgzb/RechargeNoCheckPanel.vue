@@ -201,10 +201,13 @@
       }
     },
     mounted(){
-      this.getList();
+      this.isPagination();
     },
     methods:{
       ...mapMutations(['COMMITS_PAGE','PAGINATION_PAGE']),
+      isPagination(){
+        this.paginationPage === 1 ? this.getList() :  this.PAGINATION_PAGE(1)
+      },
       async getList() {
         let { data } = await getNoCheckRecharge(this.params);
         this.list = data.root;
@@ -253,11 +256,7 @@
         delete this.params['recharge.banktype'];
         delete this.params['recharge.money'];
         console.log(this.params);
-        if(this.paginationPage === 1){
-          this.getList();
-        }else{
-          this.PAGINATION_PAGE(1);
-        }
+        this.isPagination();
       },
       shClick(){
         this.$message('这是一条消息提示');

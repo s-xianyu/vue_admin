@@ -138,10 +138,13 @@
       }
     },
     mounted(){
-      this.getList();
+      this.isPagination();
     },
     methods:{
       ...mapMutations(['COMMITS_PAGE','PAGINATION_PAGE']),
+      isPagination(){
+        this.paginationPage === 1 ? this.getList() :  this.PAGINATION_PAGE(1)
+      },
       async getList() {
         let { data } = await carManUserList(this.params);
         this.list = data.root;
@@ -173,11 +176,7 @@
         delete this.params.company;
         delete this.params.mobile;
         delete this.params.hx_loginname;
-        if(this.paginationPage === 1){
-          this.getList();
-        }else{
-          this.PAGINATION_PAGE(1);
-        }
+        this.isPagination();
       }
     }
   }

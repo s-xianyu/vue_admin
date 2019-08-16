@@ -264,10 +264,13 @@
       }
     },
     mounted(){
-      this.getList();
+      this.isPagination();
     },
     methods:{
       ...mapMutations(['COMMITS_PAGE','PAGINATION_PAGE']),
+      isPagination(){
+        this.paginationPage === 1 ? this.getList() :  this.PAGINATION_PAGE(1)
+      },
       async getList() {
         let { data } = { };
         if(this.tabIndex == 0){
@@ -309,11 +312,7 @@
         this.companyName ? params.company = this.companyName : delete params.company; //公司名
         this.yhztValue ? params.flag = this.yhztValue : delete params.flag; //用户状态
         this.llztValue ? params.iscontact_state = this.llztValue : delete params.iscontact_state; //联络状态
-        if(this.paginationPage === 1){
-          this.getList();
-        }else{
-          this.PAGINATION_PAGE(1);
-        }
+        this.isPagination();
       },
       delSearch(){
         [
@@ -342,20 +341,12 @@
         delete this.params.company;
         delete this.params.flag;
         delete this.params.iscontact_state;
-        if(this.paginationPage === 1){
-          this.getList();
-        }else{
-          this.PAGINATION_PAGE(1);
-        }
+        this.isPagination();
       },
       tabClick(e){
         this.tabIndex = e.index;
         this.loading = true;
-        if(this.paginationPage === 1){
-          this.getList();
-        }else{
-          this.PAGINATION_PAGE(1);
-        }
+        this.isPagination();
       },
       shClick(){
         this.$message('这是一条消息提示');

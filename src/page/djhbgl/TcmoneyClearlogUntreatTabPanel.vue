@@ -144,7 +144,7 @@
       }
     },
     mounted(){
-      this.getList();
+      this.isPagination();
     },
     watch:{
       _getPagination(val){
@@ -202,11 +202,7 @@
         delete this.params['tcmoneyClearlog.login_name'];
         delete this.params['tcmoneyClearlog.type'];
         delete this. params['tcmoneyClearlog.state'];
-        if(this.paginationPage === 1){
-          this.getList();
-        }else{
-          this.PAGINATION_PAGE(1);
-        }
+        this.isPagination();
       },
       handleSelectionChange(val){
         console.log(val);

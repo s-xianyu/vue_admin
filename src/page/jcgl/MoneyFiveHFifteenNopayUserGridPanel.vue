@@ -188,10 +188,13 @@
       }
     },
     mounted(){
-      this.getList();
+      this.isPagination();
     },
     methods:{
       ...mapMutations(['COMMITS_PAGE','PAGINATION_PAGE']),
+      isPagination(){
+        this.paginationPage === 1 ? this.getList() :  this.PAGINATION_PAGE(1)
+      },
       async getList() {
         let { data } = await moneyfivehfifteennopay(this.params);
         this.list = data.root;
@@ -268,11 +271,7 @@
         delete this.params.login_name;
         delete this.params.company;
         console.log(this.params);
-        if(this.paginationPage === 1){
-          this.getList();
-        }else{
-          this.PAGINATION_PAGE(1);
-        }
+        this.isPagination();
       },
     }
   }
